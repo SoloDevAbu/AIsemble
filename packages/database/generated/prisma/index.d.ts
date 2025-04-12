@@ -3428,7 +3428,7 @@ export namespace Prisma {
   }
 
   export type ProjectCreateInput = {
-    id: string
+    id?: string
     name: string
     description?: string | null
     status: $Enums.Status
@@ -3438,7 +3438,7 @@ export namespace Prisma {
   }
 
   export type ProjectUncheckedCreateInput = {
-    id: string
+    id?: string
     name: string
     description?: string | null
     status: $Enums.Status
@@ -3468,7 +3468,7 @@ export namespace Prisma {
   }
 
   export type ProjectCreateManyInput = {
-    id: string
+    id?: string
     name: string
     description?: string | null
     status: $Enums.Status
@@ -3497,7 +3497,7 @@ export namespace Prisma {
   }
 
   export type UserCreateInput = {
-    id: string
+    id?: string
     name?: string | null
     email: string
     password?: string | null
@@ -3507,7 +3507,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateInput = {
-    id: string
+    id?: string
     name?: string | null
     email: string
     password?: string | null
@@ -3537,7 +3537,7 @@ export namespace Prisma {
   }
 
   export type UserCreateManyInput = {
-    id: string
+    id?: string
     name?: string | null
     email: string
     password?: string | null
@@ -3947,7 +3947,7 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutProjectInput = {
-    id: string
+    id?: string
     name?: string | null
     email: string
     password?: string | null
@@ -3956,7 +3956,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutProjectInput = {
-    id: string
+    id?: string
     name?: string | null
     email: string
     password?: string | null
@@ -3999,7 +3999,7 @@ export namespace Prisma {
   }
 
   export type ProjectCreateWithoutUserInput = {
-    id: string
+    id?: string
     name: string
     description?: string | null
     status: $Enums.Status
@@ -4008,7 +4008,7 @@ export namespace Prisma {
   }
 
   export type ProjectUncheckedCreateWithoutUserInput = {
-    id: string
+    id?: string
     name: string
     description?: string | null
     status: $Enums.Status
@@ -4056,7 +4056,7 @@ export namespace Prisma {
   }
 
   export type ProjectCreateManyUserInput = {
-    id: string
+    id?: string
     name: string
     description?: string | null
     status: $Enums.Status

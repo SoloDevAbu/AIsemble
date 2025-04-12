@@ -1,17 +1,2 @@
-import { PrismaClient } from '../generated/prisma/client'
-
-console.log("PrismaClient loaded from:", require.resolve("@prisma/client"));
-
-const prismaClientSingleton = () => {
-    return new PrismaClient()
-}
-
-declare global {
-    var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>
-}
-
-const prisma: ReturnType<typeof prismaClientSingleton> = globalThis.prismaGlobal ?? prismaClientSingleton()
-
-export default prisma
-
-if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma
+export { prisma } from './client' // exports instance of prisma 
+export * from "../generated/prisma" // exports generated types from prisma

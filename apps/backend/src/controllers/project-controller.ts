@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import db from "@repo/database/client";
+import { prisma } from "@repo/db";
 
 export const createProject = async (req: Request, res: Response) => {
     try {
         const { name, description } = req.body;
         const userId = req.user.id;
 
-        const user = await db.user.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 id: userId
             }
@@ -19,12 +19,12 @@ export const createProject = async (req: Request, res: Response) => {
             return
         }
 
-        const project = await db.project.create({
+        const project = await prisma.project.create({
             data: {
-                name,
-                description,
-                userId : userId,
-                status: "ACTIVE"
+            name,
+            description,
+            userId,
+            status: "ACTIVE",
             }
         })
 
@@ -42,7 +42,7 @@ export const getProjects = async (req: Request, res: Response) => {
     try {
         const userId = req.user.id;
 
-        const user = await db.user.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 id: userId
             }
@@ -54,7 +54,7 @@ export const getProjects = async (req: Request, res: Response) => {
             })
         }
 
-        const projects = await db.project.findMany({
+        const projects = await prisma.project.findMany({
             where: {
                 userId: userId
             }
@@ -70,7 +70,7 @@ export const getProjectsById = async (req: Request, res: Response) => {
     try {
         const {projectId} = req.params;
         const userId = req.user.id;
-        const user = await db.user.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 id: userId
             }
@@ -80,7 +80,7 @@ export const getProjectsById = async (req: Request, res: Response) => {
                 message: "User not found"
             })
         }
-        const project = await db.project.findUnique({
+        const project = await prisma.project.findUnique({
             where: {
                 id: projectId,
                 userId: userId
